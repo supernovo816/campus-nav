@@ -5,7 +5,7 @@ import SearchConsole from '../components/SearchConsole';
 import BlueprintMap from '../components/BlueprintMap';
 import NavigationInfoPanel from '../components/NavigationInfoPanel';
 import TurfPage from '../floors/floor13/TurfPage';
-import ParkingPage from '../floors/b1/ParkingPage';
+import ParkingPage from '../floors/g1/ParkingPage';
 
 export default function NavigatorPage({ initialFloorId, onGoHome }) {
   const [currentFloorId, setCurrentFloorId] = useState(initialFloorId || 'floor1');

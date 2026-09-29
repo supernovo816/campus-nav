@@ -607,7 +607,7 @@ h1, h2, h3, h4, h5, h6 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============ B1: PARKING PAGE ============ */
+/* ============ G1: PARKING PAGE ============ */
 .parking-page {
     background-color: var(--black-0); padding: 2.5rem;
     display: flex; flex-direction: column; gap: 2rem; overflow-y: auto; height: 100%;

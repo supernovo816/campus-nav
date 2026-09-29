@@ -1,7 +1,7 @@
 // FloorSidebar — elevator-style left panel for floor selection
 // Preserves exact same CSS classes and visual style as original
 export default function FloorSidebar({ floors, currentFloorId, onFloorSelect, matchingFloorIds = [] }) {
-  // Show floors from lowest (B1) to highest (Floor 13)
+  // Show floors from lowest (G1) to highest (Floor 13)
   const sorted = [...floors].sort((a, b) => a.numId - b.numId);
 
   return (

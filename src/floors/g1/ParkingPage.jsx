@@ -1,4 +1,4 @@
-// B1 Parking Floor Page
+// G1 Parking Floor Page
 // Displays parking statistics and an SVG parking layout map
 import { floors } from '../../data/floorData';
 
@@ -27,10 +27,10 @@ function countByStatus(status) {
 }
 
 export default function ParkingPage({ highlightedRoomId }) {
-  // Look up highlighted room from B1 floor data
-  const b1Floor = floors.find((f) => f.id === 'b1');
+  // Look up highlighted room from G1 floor data
+  const g1Floor = floors.find((f) => f.id === 'g1');
   const highlightedRoom = highlightedRoomId
-    ? b1Floor?.rooms.find((r) => r.id === highlightedRoomId)
+    ? g1Floor?.rooms.find((r) => r.id === highlightedRoomId)
     : null;
   const totalSpots = ROWS.reduce((a, r) => a + r.count, 0);
   const available = countByStatus('available');
@@ -128,7 +128,7 @@ export default function ParkingPage({ highlightedRoomId }) {
           <span className="search-highlight-icon">{highlightedRoom.icon}</span>
           <div className="search-highlight-text">
             <strong>{highlightedRoom.name}</strong>
-            <span>B1 — Basement Parking</span>
+            <span>G1 — Basement Parking</span>
           </div>
           <span className="search-highlight-badge">📍 Located Here</span>
         </div>
@@ -136,11 +136,11 @@ export default function ParkingPage({ highlightedRoomId }) {
       {/* Header */}
       <div className="parking-header">
         <div className="parking-header-info">
-          <h2>B1 — Basement Parking</h2>
+          <h2>G1 — Basement Parking</h2>
           <p>Underground vehicle parking facility. {available} spots currently available.</p>
         </div>
         <div className="parking-badge">
-          <span>🚗</span> Parking Level B1
+          <span>🚗</span> Parking Level G1
         </div>
       </div>
 
@@ -163,7 +163,7 @@ export default function ParkingPage({ highlightedRoomId }) {
       {/* Parking Map */}
       <div className="parking-map-area">
         <div className="parking-map-header">
-          <span>Parking Layout — B1 Level</span>
+          <span>Parking Layout — G1 Level</span>
           <div className="parking-legend">
             <div className="parking-legend-item">
               <div className="parking-legend-dot available" />

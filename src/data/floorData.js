@@ -195,20 +195,57 @@ export const buildUpperFloor = (floorId, hasCafe = false, hasChairman = false) =
 // ALL FLOORS DATA
 // ==========================================
 export const floors = [
-  // B1 — Parking
+  // G1 — Parking
   {
-    id: 'b1',
+    id: 'g1',
     numId: -1,
-    name: 'B1 — Parking',
-    label: 'B1',
+    name: 'G1 — Parking',
+    label: 'G1',
     tag: 'PARKING',
     facilities: 'Parking Area, Vehicle Bay',
     locked: false,
     special: 'parking',
     rooms: [
-      { id: 'rb1-lift-left', name: 'Left Lift', type: 'lobby', x: 60, y: 170, w: 60, h: 60, icon: '🛗' },
-      { id: 'rb1-lift-right', name: 'Right Lift', type: 'lobby', x: 720, y: 170, w: 60, h: 60, icon: '🛗' },
-      { id: 'rb1-parking', name: 'Parking Area', type: 'amenity', x: 180, y: 80, w: 530, h: 240, icon: '🚗' },
+      { id: 'rg1-lift-left', name: 'Left Lift', type: 'lobby', x: 60, y: 170, w: 60, h: 60, icon: '🛗' },
+      { id: 'rg1-lift-right', name: 'Right Lift', type: 'lobby', x: 720, y: 170, w: 60, h: 60, icon: '🛗' },
+      { id: 'rg1-parking', name: 'Parking Area', type: 'amenity', x: 180, y: 80, w: 530, h: 240, icon: '🚗' },
+    ],
+  },
+
+  // Ground Floor
+  {
+    id: 'ground',
+    numId: 0,
+    name: 'Ground Floor',
+    label: 'G',
+    tag: 'WAITING AREA',
+    facilities: 'Reception, Canteen, Admission Room',
+    locked: false,
+    special: null,
+    rooms: [
+      { id: 'rg-lift-left', name: 'Left Lift', type: 'lobby', x: 60, y: 170, w: 60, h: 60, icon: '🛗' },
+      { id: 'rg-lift-right', name: 'Right Lift', type: 'lobby', x: 720, y: 170, w: 60, h: 60, icon: '🛗' },
+      { id: 'rg-reception', name: 'Central Reception Desk', type: 'office', x: 180, y: 80, w: 200, h: 90, icon: '🏢' },
+      { id: 'rg-admission', name: 'Admissions Office', type: 'office', x: 400, y: 80, w: 310, h: 90, icon: '✏️' },
+      { id: 'rg-canteen', name: 'Main Dining Canteen', type: 'cafe', x: 180, y: 230, w: 340, h: 90, icon: '🍲' },
+      { id: 'rg-security', name: 'Security & First Aid', type: 'office', x: 540, y: 230, w: 170, h: 90, icon: '🚨' },
+    ],
+  },
+
+  // M Floor
+  {
+    id: 'mfloor',
+    numId: 0.5,
+    name: 'M Floor',
+    label: 'M',
+    tag: 'CONFERENCE HALL',
+    facilities: 'Conference Hall',
+    locked: false,
+    special: null,
+    rooms: [
+      { id: 'rm-lift-left', name: 'Left Lift', type: 'lobby', x: 60, y: 170, w: 60, h: 60, icon: '🛗' },
+      { id: 'rm-lift-right', name: 'Right Lift', type: 'lobby', x: 720, y: 170, w: 60, h: 60, icon: '🛗' },
+      { id: 'rm-conference', name: 'Conference Hall', type: 'amenity', x: 180, y: 80, w: 530, h: 240, icon: '🎤' },
     ],
   },
 
@@ -218,18 +255,11 @@ export const floors = [
     numId: 1,
     name: 'Floor 1',
     label: '1',
-    tag: 'WAITING AREA',
-    facilities: 'Reception, Canteen, Admission Room',
+    tag: 'BBA DEPARTMENT',
+    facilities: 'Classrooms 1–10, Staff Room, Lift, Male Restroom, Female Restroom, Staircase, Working Place',
     locked: false,
     special: null,
-    rooms: [
-      { id: 'r1-lift-left', name: 'Left Lift', type: 'lobby', x: 60, y: 170, w: 60, h: 60, icon: '🛗' },
-      { id: 'r1-lift-right', name: 'Right Lift', type: 'lobby', x: 720, y: 170, w: 60, h: 60, icon: '🛗' },
-      { id: 'r1-reception', name: 'Central Reception Desk', type: 'office', x: 180, y: 80, w: 200, h: 90, icon: '🏢' },
-      { id: 'r1-admission', name: 'Admissions Office', type: 'office', x: 400, y: 80, w: 310, h: 90, icon: '✏️' },
-      { id: 'r1-canteen', name: 'Main Dining Canteen', type: 'cafe', x: 180, y: 230, w: 340, h: 90, icon: '🍲' },
-      { id: 'r1-security', name: 'Security & First Aid', type: 'office', x: 540, y: 230, w: 170, h: 90, icon: '🚨' },
-    ],
+    rooms: buildUpperFloor(1),
   },
 
   // Floor 2
@@ -423,7 +453,7 @@ export const floors = [
 // Keyword aliases: maps a search term to partial strings checked against room name/type/facilities
 const SEARCH_ALIASES = {
   turf: ['turf'],
-  parking: ['parking', 'vehicle', 'basement'],
+  parking: ['parking', 'vehicle', 'basement', 'g1'],
   canteen: ['canteen', 'cafe', 'dining', 'coffee', 'bar'],
   staircase: ['staircase', 'stair'],
   'working place': ['working place', 'workingplace'],
@@ -437,6 +467,8 @@ const SEARCH_ALIASES = {
   classroom: ['classroom', 'room', 'class'],
   cafe: ['cafe', 'coffee'],
   chairman: ['chairman'],
+  conference: ['conference', 'hall'],
+  bba: ['bba'],
 };
 
 export function searchLocations(query) {
