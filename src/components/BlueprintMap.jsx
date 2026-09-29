@@ -63,7 +63,6 @@ function renderFloorSVGContent(floor, selectedDestRoomId, selectedOriginRoomId) 
       const chairLabelY = r.y + 58;
       
       renderIconAndLabel = `
-        <text x="${cx}" y="${crownY}" class="map-room-icon" style="font-size: 14px;">👑</text>
         <image href="/vels_logo.jpeg" x="${imgX}" y="${imgY}" width="${imgWidth}" height="${imgHeight}" preserveAspectRatio="xMidYMid slice" style="pointer-events: none;" />
         ${renderRoomLabel(cx, chairLabelY, r.name, narrow)}
       `;
