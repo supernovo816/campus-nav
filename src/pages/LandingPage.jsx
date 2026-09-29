@@ -1,4 +1,12 @@
-import { departments } from '../data/floorData';
+const academicDivisions = [
+  { name: 'BCA Department', floorId: 'floor3' },
+  { name: 'BSc Department', floorId: 'floor6' },
+  { name: 'Flight Simulation Lab', floorId: 'floor7' },
+  { name: 'Aviation Department', floorId: 'floor8' },
+  { name: 'B.Com Department', floorId: 'floor9' },
+  { name: 'IDEA Lab', floorId: 'floor10' },
+  { name: 'MCA Department', floorId: 'floor11' },
+];
 
 export default function LandingPage({ onNavigate }) {
   return (
@@ -21,7 +29,7 @@ export default function LandingPage({ onNavigate }) {
       </section>
 
       {/* Right Departments & CTA Column */}
-      <section className="details-column" aria-label="Campus Departments and Directory">
+      <section className="details-column" aria-label="Campus Directory">
         <div className="details-header">
           <img src="/vels_logo.jpeg" alt="VISTAS Logo" className="college-logo" />
           <span className="subtitle">Campus Directory</span>
@@ -34,22 +42,22 @@ export default function LandingPage({ onNavigate }) {
           </p>
         </div>
 
-        {/* Scrollable Departments List */}
+        {/* Scrollable Divisions List */}
         <div className="dept-section">
           <h3>Academic Divisions</h3>
           <div className="dept-list" id="dept-list">
-            {departments.map((dept) => (
+            {academicDivisions.map((dept) => (
               <div
-                key={dept.floorId}
+                key={dept.name}
                 className="dept-card"
                 onClick={() => onNavigate(dept.floorId)}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && onNavigate(dept.floorId)}
+                aria-label={dept.name}
               >
                 <div className="dept-info">
                   <h4>{dept.name}</h4>
-                  <p>📍 Main Facilities: {dept.rooms}</p>
                 </div>
                 <div className="dept-arrow">➔</div>
               </div>
